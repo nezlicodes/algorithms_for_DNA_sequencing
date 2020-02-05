@@ -25,3 +25,4 @@ t = 'TGGCCTGATTTT'
 p = 'GG'
 
 print(naive(p,t))
+
