@@ -18,4 +18,5 @@ def readFastq(filename):
 
     return sequences, qualities
 
-print(readFastq('SRR835775_1.first1000.fastq'))
+seqs, quals = readFastq('SRR835775_1.first1000.fastq')
+print(seqs)
