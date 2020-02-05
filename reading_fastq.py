@@ -19,9 +19,20 @@ def readFastq(filename):
     return sequences, qualities
 
 seqs, quals = readFastq('SRR835775_1.first1000.fastq')
-print(seqs)
+
 
 def fred33ToQual(val):
     return ord(val) - 33
 
-print(fred33ToQual('s'))
+def createHist(qualities):
+    hist = [0] * 50
+    for qual in qualities:
+        for phred in qual:
+            q = fred33ToQual(phred)
+            hist[q] += 1
+    return hist
+
+h = createHist(quals)
+import matplotlib.pyplot as plt
+plt.bar(range(len(h)), h)
+plt.show()
