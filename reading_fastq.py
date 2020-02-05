@@ -36,3 +36,23 @@ h = createHist(quals)
 import matplotlib.pyplot as plt
 plt.bar(range(len(h)), h)
 plt.show()
+
+## Ploting GC content
+
+def findGCByPos(reads):
+    gc = [0] * 100
+    totals = [0] * 100
+    for read in reads:
+        for index in range(len(read)):
+            if read[index] == 'C' or read[index] == 'G':
+                gc[index]+= 1;
+                totals[index] +=1
+        for i in range(len(totals)):
+            if totals[i] > 0:
+                gc[i] /= float(totals[i])
+    return gc
+gc = findGCByPos(seqs)
+plt.plot(range(len(gc)), gc)
+plt.show()
+
+print(seqs[:5])
