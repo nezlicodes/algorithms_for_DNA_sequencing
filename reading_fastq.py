@@ -20,3 +20,8 @@ def readFastq(filename):
 
 seqs, quals = readFastq('SRR835775_1.first1000.fastq')
 print(seqs)
+
+def fred33ToQual(val):
+    return ord(val) - 33
+
+print(fred33ToQual('s'))
